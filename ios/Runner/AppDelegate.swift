@@ -11,15 +11,22 @@ import UIKit
     let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
     let batteryChannel = FlutterMethodChannel(
       name: "samples.ios.examples/battery", binaryMessenger: controller.binaryMessenger)
+    weak var registrar = self.registrar(forPlugin: "plugin-name")
 
-    batteryChannel.setMethodCallHandler({
+    let factory = FLNativeViewFactory(messenger: registrar!.messenger())
+
+    self.registrar(forPlugin: "<plugin-name>")!.register(
+      factory,
+      withId: "<platform-view-type>")
+
+    batteryChannel.setMethodCallHandler {
       (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
       guard call.method == "getBatteryLevel" else {
         result(FlutterMethodNotImplemented)
         return
       }
       self.receiveBatteryLevel(result: result)
-    })
+    }
 
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)

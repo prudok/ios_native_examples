@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ios_native_code_examples/examples/battery_screen.dart';
+import 'package:ios_native_code_examples/examples/platform_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,21 +31,25 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const BatteryScreen()),
+  Widget build(BuildContext context) => Scaffold(
+        body: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const BatteryScreen()),
+                ),
+                child: const Text('Battery Level'),
               ),
-              child: const Text('Battery Level'),
-            ),
-          ],
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const PlatformScreen()),
+                ),
+                child: const Text('Platform Screen'),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 }
