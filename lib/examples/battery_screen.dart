@@ -1,34 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:ios_native_code_examples/platform.dart';
 
-class BatteryScreen extends StatefulWidget {
+class BatteryScreen extends StatelessWidget {
   const BatteryScreen({super.key});
-
-  @override
-  State<BatteryScreen> createState() => _BatteryScreenState();
-}
-
-class _BatteryScreenState extends State<BatteryScreen> {
-  static const platform = MethodChannel('samples.ios.examples/battery');
-
-  String _batteryLevel = 'Unknown battery level.';
-
-  Future<void> _getBatteryLevel() async {
-    String batteryLevel;
-    try {
-      final result = await platform.invokeMethod<int>('getBatteryLevel');
-      batteryLevel = 'Battery level at $result % .';
-    } on PlatformException catch (e) {
-      batteryLevel = "Failed to get battery level: '${e.message}'.";
-    }
-    setState(() => _batteryLevel = batteryLevel);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _getBatteryLevel();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +11,18 @@ class _BatteryScreenState extends State<BatteryScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(_batteryLevel),
+            FutureBuilder(
+              future: Platform.of(context)?.getBatteryLevel(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text('Current level: ${snapshot.data}');
+                } else {
+                  return const CircularProgressIndicator();
+                }
+              },
+            ),
             ElevatedButton(
-              onPressed: _getBatteryLevel,
+              onPressed: Platform.of(context)?.getBatteryLevel,
               child: const Text('Check battery level again'),
             )
           ],

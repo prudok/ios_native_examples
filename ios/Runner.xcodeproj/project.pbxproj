@@ -14,6 +14,7 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		D043F07A2AFFD2A80005F56E /* NativeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D043F0792AFFD2A80005F56E /* NativeFormView.swift */; };
 		D0BEA79E2AFED93300B5E123 /* FLNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BEA79D2AFED93300B5E123 /* FLNativeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,16 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D043F0562AFFB62F0005F56E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +67,10 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D043F0442AFFB62D0005F56E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D043F0462AFFB62D0005F56E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D043F05C2AFFB7E30005F56E /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
+		D043F0792AFFD2A80005F56E /* NativeFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeFormView.swift; sourceTree = "<group>"; };
 		D0BEA79D2AFED93300B5E123 /* FLNativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLNativeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +109,7 @@
 			children = (
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
+				D043F0432AFFB62D0005F56E /* Frameworks */,
 				97C146EF1CF9000F007C117D /* Products */,
 				331C8082294A63A400263BE5 /* RunnerTests */,
 			);
@@ -111,6 +127,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				D043F05C2AFFB7E30005F56E /* Runner.entitlements */,
 				D0BEA79C2AFED8F100B5E123 /* Examples */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
@@ -124,10 +141,20 @@
 			path = Runner;
 			sourceTree = "<group>";
 		};
+		D043F0432AFFB62D0005F56E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D043F0442AFFB62D0005F56E /* WidgetKit.framework */,
+				D043F0462AFFB62D0005F56E /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D0BEA79C2AFED8F100B5E123 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
 				D0BEA79D2AFED93300B5E123 /* FLNativeView.swift */,
+				D043F0792AFFD2A80005F56E /* NativeFormView.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -162,6 +189,7 @@
 				97C146EC1CF9000F007C117D /* Resources */,
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
+				D043F0562AFFB62F0005F56E /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -179,6 +207,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
@@ -280,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
+				D043F07A2AFFD2A80005F56E /* NativeFormView.swift in Sources */,
 				D0BEA79E2AFED93300B5E123 /* FLNativeView.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 			);
@@ -371,6 +401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = D2XA5J2UN6;
 				ENABLE_BITCODE = NO;
@@ -393,6 +424,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2XA5J2UN6;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iosNativeCodeExamples.RunnerTests;
@@ -410,6 +442,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2XA5J2UN6;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iosNativeCodeExamples.RunnerTests;
@@ -425,6 +458,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2XA5J2UN6;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iosNativeCodeExamples.RunnerTests;
@@ -547,6 +581,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = D2XA5J2UN6;
 				ENABLE_BITCODE = NO;
@@ -570,6 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = D2XA5J2UN6;
 				ENABLE_BITCODE = NO;
