@@ -55,7 +55,8 @@ class FLNativeView: NSObject, FlutterPlatformView {
     nativeLabel.textAlignment = .center
     nativeLabel.frame = CGRect(
       x: 0, y: screenHeight / 2, width: screenWidth,
-      height: 50.0)
+      height: 50.0
+    )
     customView.addSubview(nativeLabel)
   }
 }

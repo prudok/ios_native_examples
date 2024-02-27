@@ -37,7 +37,13 @@ class _NativeWidgetState extends State<NativeWidget> {
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                WidgetKit.setItem('WidgetData', _controller.text, 'group.ios-widget-flutter');
+                try {
+                  WidgetKit.setItem(
+                    'WidgetData',
+                    _controller.text,
+                    'group.ios-widget-flutter',
+                  );
+                } on Object catch (_) {}
               },
               child: const Text('Push to widget'),
             )

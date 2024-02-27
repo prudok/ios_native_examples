@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ios_native_code_examples/components/app_notification.dart';
 import 'package:ios_native_code_examples/examples/battery_screen.dart';
 import 'package:ios_native_code_examples/examples/native_widget/native_widget.dart';
 import 'package:ios_native_code_examples/examples/platform_screen.dart';
@@ -40,7 +41,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
@@ -60,6 +61,13 @@ class _MainPageState extends State<MainPage> {
                 MaterialPageRoute(builder: (_) => const NativeWidget()),
               ),
               child: const Text('Native Widget'),
+            ),
+            ElevatedButton(
+              onPressed: () => AppNotification().error(
+                context,
+                'Error occured',
+              ),
+              child: const Text('Notification'),
             ),
           ],
         ),

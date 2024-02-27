@@ -15,7 +15,10 @@ class BatteryScreen extends StatelessWidget {
               future: Platform.of(context)?.getBatteryLevel(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return Text('Current level: ${snapshot.data}');
+                  return Text(
+                    'Current level: ${snapshot.data}',
+                    textAlign: TextAlign.center,
+                  );
                 } else {
                   return const CircularProgressIndicator();
                 }

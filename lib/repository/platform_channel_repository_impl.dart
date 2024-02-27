@@ -7,10 +7,10 @@ class PlatformChannelRepositoryImpl extends PlatformChannelRepository {
   @override
   Future<String> getBatteryLevel() async {
     try {
-      final result = channel.invokeMethod<int>('getBatteryLevel');
+      final result = await channel.invokeMethod<int>('getBatteryLevel');
       return 'Battery level: $result%';
-    } on PlatformException catch (error) {
-      return "Failed to get battery level: '${error.message}'.";
+    } on Object catch (error) {
+      return "Failed to get battery level: $error";
     }
   }
 }
